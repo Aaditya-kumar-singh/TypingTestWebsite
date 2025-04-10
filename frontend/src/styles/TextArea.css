@@ -1,0 +1,279 @@
+.container {  
+  
+  width: 100%;
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-md);
+  transition: var(--transition-normal);
+}
+
+.highlighted-text {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--text-color);
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  min-height: 100px;
+  display: flex;
+  margin-top: 9px;
+
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  position: relative;
+  box-shadow: var(--box-shadow-inner);
+}
+
+.highlighted-text::before {
+  content: 'Sample Text';
+  position: absolute;
+  top: -12px;
+  left: 15px;
+  
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  border-radius: 5px;
+
+}
+
+.highlighted-text span {
+  display: inline-block;
+  transition: all 0.2s ease;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.highlighted-text span.correct {
+  color: var(--success-color);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.highlighted-text span.incorrect {
+  color: var(--danger-color);
+  background: rgba(255, 82, 82, 0.1);
+  text-decoration: underline;
+  text-decoration-color: var(--danger-color);
+}
+
+.text-area-container {
+  
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xs);
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.text-area-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.text-area {
+  
+  flex: 1;
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  resize: none;
+  background: white;
+  transition: var(--transition-normal);
+  overflow-y: auto;
+}
+
+.text-area:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+}
+
+.text-area::placeholder {
+  color: #999;
+}
+
+.results{
+ 
+  display: inline-flex;
+  gap: 0.5em;
+}
+.generated-text {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(52, 151, 164, 0.1);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  font-style: italic;
+  border-left: 4px solid var(--primary-color);
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.6;
+  position: relative;
+}
+
+.generated-text::before {
+  content: 'Next Text';
+  position: absolute;
+  top: -12px;
+  left: 15px;
+  background: white;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Stats Section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .highlighted-text,
+  .text-area-container {
+    padding: 1rem;
+  }
+
+  .text-area-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .highlighted-text,
+  .text-area-container {
+    padding: 0.8rem;
+  }
+
+  .text-area-container {
+    height: 160px;
+  }
+}
+
+/* Portrait Mode Adjustments */
+@media (orientation: portrait) {
+  .container {
+    margin-bottom: 250px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: #2c3e50;
+  }
+
+  .highlighted-text {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #ecf0f1;
+  }
+
+  .highlighted-text::before {
+    background: transparent;
+    color: var(--primary-color);
+    
+
+  }
+
+  .text-area-container {
+    background: #c3d9ee;
+   
+  }
+
+  .text-area {
+    
+    
+    
+    background: #d8dde2;
+    color: rgb(17, 15, 15);
+  }
+
+  .text-area:focus {
+    
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+  }
+
+  .generated-text {
+    background: rgba(0, 188, 212, 0.05);
+    color: #ecf0f1;
+  }
+
+  .generated-text::before {
+    background: #2c3e50;
+  }
+
+  .stats {
+    background: #b26666;
+    border-color: #6e4747;
+  }
+
+  .stat-item {
+    background: #2c3e50;
+  }
+
+  .stat-label {
+    color: #ecf0f1;
+  }
+}
+  

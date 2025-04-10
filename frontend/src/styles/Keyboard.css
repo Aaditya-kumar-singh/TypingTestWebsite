@@ -1,0 +1,60 @@
+
+
+.keyboard {
+  width: auto;
+  max-width: 70px;
+  height: auto;
+  max-height: 350px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+.key {
+  padding: 13px 7px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background: var(--key-bg);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.key:active,
+.key.active {
+  background: var(--accent-color);
+  color: var(--keyboard-bg);
+  transform: translateY(2px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.key-Backspace,
+.key-Enter {
+  grid-column: span 2;
+  background: #444;
+}
+
+.key-Space {
+  grid-column: span 6;
+  background: #444;
+}
+
+@media (max-width: 768px) {
+  .keyboard {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+
+  .key {
+    padding: 9px 4px;
+    font-size: 13px;
+  }
+}
